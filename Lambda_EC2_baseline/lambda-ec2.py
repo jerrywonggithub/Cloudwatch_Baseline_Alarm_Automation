@@ -268,7 +268,7 @@ def lambda_handler(event, context):
             #           为该EC2数据库标记CWalarm-CPUUtilization标签
             EC2_tags = EC2_client.create_tags(
                 #DryRun=True,
-                ResourceName=ec2_record['InstanceId'],
+                Resources = json.loads('["'+ec2_name+'"]'),
                 Tags=[
                     {
                         'Key': 'CWalarm-CPUUtilization',
