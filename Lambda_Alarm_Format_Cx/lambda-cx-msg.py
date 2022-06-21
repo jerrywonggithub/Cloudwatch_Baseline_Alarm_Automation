@@ -49,7 +49,7 @@ def lambda_handler(event, context):
 
     # create Custom message and change timestamps
 
-    customMessage = 'You are receiving this email because your Amazon CloudWatch Alarm "' + alarmName + '" in the ' + region + ' region has entered the ' + state + ' state, because "' + reason + '" at "' + localTimeStamp + ' ' + localTimezoneInitial + '.'
+    customMessage = 'You are receiving this email because your Amazon CloudWatch Alarm "' + alarmName + '" in the ' + region + ' region has entered the ' + state + ' state, because "' + reason + '" at "' + timestamp + ' UTC'  + '.'
 
     # Add Console link
     customMessage = customMessage + '\n\n View this alarm in the AWS Management Console: \n' + 'https://' + RegionID + '.console.aws.amazon.com/cloudwatch/home?region=' + RegionID + '#s=Alarms&alarm=' + urllib.parse.quote(
