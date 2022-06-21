@@ -2,7 +2,7 @@
 
 ### 架构图
 
-[Image: Image.jpg]
+![架构图](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/cw_alarm_automation_architecture.png)
 ### 方案说明
 
 此方案实现：
