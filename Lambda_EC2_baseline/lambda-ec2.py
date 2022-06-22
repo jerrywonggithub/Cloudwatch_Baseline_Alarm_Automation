@@ -10,8 +10,9 @@ import json
 import boto3
 
 # Read required EC2 metric name from environment variables
-# (In my sample configured CPUUtilization, DatabaseConnections, FreeableMemory, FreeStorageSpace)
-EC2_MetricName = os.environ['MetricName'].split(',')
+# (In my sample configured CPUUtilization)
+# EC2_MetricName = os.environ['MetricName'].split(',')
+EC2_MetricName = ['CPUUtilization']
 MaxItems = os.environ['MaxItems']
 SNS_topic_ARN = os.environ['SNS_topic_ARN']
 
