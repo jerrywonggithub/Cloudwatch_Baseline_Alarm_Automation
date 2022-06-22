@@ -11,7 +11,8 @@ import boto3
 
 # Read required RDS metric name from environment variables
 # (In my sample configured CPUUtilization, DatabaseConnections, FreeableMemory, FreeStorageSpace)
-RDS_MetricName = os.environ['MetricName'].split(',')
+# RDS_MetricName = os.environ['MetricName'].split(',')
+RDS_MetricName = ['CPUUtilization','DatabaseConnections','FreeableMemory','FreeStorageSpace']
 MaxItems = os.environ['MaxItems']
 SNS_topic_ARN = os.environ['SNS_topic_ARN']
 
