@@ -113,7 +113,7 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 
 
 修改运行超时时间（建议设置为1分钟或5分钟）
-![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2_timeout.jpg)
+![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_code_timeout.jpg)
 
 添加环境变量
 >为了铺开告警指标的部署，建议 MaxItems 值设为1000或者更高
