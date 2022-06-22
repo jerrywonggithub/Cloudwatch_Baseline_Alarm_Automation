@@ -12,7 +12,8 @@ import boto3
 
 # Read required ElastiCache metric name from environment variables
 # (In my sample configured EngineCPUUtilization, DatabaseMemoryUsagePercentage)
-EC_MetricName = os.environ['MetricName'].split(',')
+# EC_MetricName = os.environ['MetricName'].split(',')
+EC_MetricName = ['EngineCPUUtilization','DatabaseMemoryUsagePercentage']
 MaxItems = os.environ['MaxItems']
 SNS_topic_ARN = os.environ['SNS_topic_ARN']
 
