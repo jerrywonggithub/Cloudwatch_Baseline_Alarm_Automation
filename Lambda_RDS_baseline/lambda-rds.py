@@ -103,7 +103,7 @@ def map_maxConnections(instanceSize):
 
 
 # The 'handler' Python function is the entry point for AWS Lambda function invocations.
-def handler(event, context):
+def lambda_handler(event, context):
 
 
     stsClient = boto3.client('sts')
