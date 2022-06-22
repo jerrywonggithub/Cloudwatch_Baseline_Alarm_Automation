@@ -76,9 +76,9 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 创建后把路径 [Lambda_Alarm_Format_Cx](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/tree/main/Lambda_Alarm_Format_Cx)/lambda-cx-msg.py 的代码复制并覆盖到 code 页面上，点击 Deploy 进行代码部署
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_code.jpg)
 修改运行超时时间（建议设置为1分钟或5分钟）
-![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_timeout.jpg)
+![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_code_timeout.jpg)
 添加环境变量（Key：NotificationSNSTopicARN，**Value：<填写告警通知方案部署中最后记录的ARN>** ）
-![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_env.jpg)
+![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_code_env.jpg)
 
 
 3. 额外创建一个 SNS，作为原始告警信息的事件总线
@@ -87,9 +87,9 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 
 ![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_sns_topic.jpg)
 创建订阅（选择 Lambda 作为协议类型，然后选择上一步创建完成的 Lambda：lambda-customize-msg）
-![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_sns_topic.jpg)
-![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_sns_topic_subscription.jpg)
-![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_sns_topic_subscription_2.jpg)
+![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_subscription.jpg)
+![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_subscription_lambda.jpg)
+![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_subscription_2.jpg)
 
 
 4. 上传依赖包
