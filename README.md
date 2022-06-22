@@ -39,6 +39,8 @@
 
 
 
+
+
 ### 部署步骤
 
 >本项目采取从右往左的部署顺序
@@ -68,7 +70,7 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 
 
 
-1. 部署 Lambda，实现消息格式自定义
+2. 部署 Lambda，实现消息格式自定义
 
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg.jpg)
 创建后把路径 [Lambda_Alarm_Format_Cx](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/tree/main/Lambda_Alarm_Format_Cx)/lambda-cx-msg.py 的代码复制并覆盖到 code 页面上，点击 Deploy 进行代码部署
@@ -79,7 +81,7 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_cx_msg_env.jpg)
 
 
-1. 额外创建一个 SNS，作为原始告警信息的事件总线
+3. 额外创建一个 SNS，作为原始告警信息的事件总线
 
 >选择Standard 类型，填写topic名字之后，其他配置保留默认即可，点击创建后**并记录 ARN**
 
@@ -90,8 +92,7 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 ![SNS](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/sns_create_sns_topic_subscription_2.jpg)
 
 
-
-1. 上传依赖包
+4. 上传依赖包
 
 将本项目需要用到的依赖包：**requests.zip** 下载下来
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/requests.jpg)
@@ -99,7 +100,7 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 先上传依赖包，为后续每个 Lambda 的部署工作服务
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2_createlayer.jpg)
 
-1. 部署告警自动化代码
+5. 部署告警自动化代码
 
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2.jpg)
 
@@ -115,20 +116,21 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2_timeout.jpg)
 
 添加环境变量
+>为了铺开告警指标的部署，建议 MaxItems 值设为1000或者更高
+>SNS_topic_ARN填写在第三步创建SNS的ARN
+![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2_env.jpg)
 
->为了铺开告警指标的部署，建议<MaxItems>值设为1000或者更高
-
-><SNS_topic_ARN> 填写在第三步创建SNS的ARN
 
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec2_env.jpg)
 
-1. 后续 ElastiCache、RDS Lambda 的部署均与上面步骤5相同，分别将下图文件夹中的Python代码部署一遍即可
+6. 后续 ElastiCache、RDS Lambda 的部署均与上面步骤5相同，分别将下图文件夹中的Python代码部署一遍即可
 
-![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_alarmAutomation_ec_rds.jpg)
+![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/lambda_ec_rds.jpg)
 
 
-1. 配置 Amazon EventBridge 
+7. 配置 Amazon EventBridge 
 
+![eventBridge](capture/event_bridge.jpg)
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/event_bridge.jpg)
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/event_bridge_2.jpg)
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/event_bridge_3.jpg)
@@ -136,10 +138,9 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/event_bridge_5.jpg)
 
 >注意：应为每个告警自动化的 lambda 创建一个定时规则，此处不再重复演示
-
-
-
 >至此，已完成本项目的全流程部署
+
+
 
 
 
