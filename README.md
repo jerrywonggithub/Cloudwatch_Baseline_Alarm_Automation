@@ -156,3 +156,10 @@ https://github.com/Chris-wa-He/AWS-Lambda-notifier/tree/Feishu-notifier
 #### 飞书客户端通知信息
 ![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/feishu_notice_1.png)![lambda](https://github.com/jerrywonggithub/Cloudwatch_Baseline_Alarm_Automation/blob/main/capture/feishu_notice_2.png)
 
+
+
+
+### 致谢
+此方案结合了Chris He 和佃安祺两位方案基础上进行了改造
+https://github.com/Chris-wa-He/AWS-Lambda-notifier
+https://aws.amazon.com/cn/blogs/china/automatically-create-customized-cloudwatch-alarm-solutions/
