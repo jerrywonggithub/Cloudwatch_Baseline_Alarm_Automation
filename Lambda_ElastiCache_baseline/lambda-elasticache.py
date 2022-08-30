@@ -12,8 +12,7 @@ import boto3
 
 # Read required ElastiCache metric name from environment variables
 # (In my sample configured EngineCPUUtilization, DatabaseMemoryUsagePercentage)
-# EC_MetricName = os.environ['MetricName'].split(',')
-EC_MetricName = ['EngineCPUUtilization','DatabaseMemoryUsagePercentage']
+EC_MetricName = os.environ['MetricName'].split(',')
 MaxItems = os.environ['MaxItems']
 SNS_topic_ARN = os.environ['SNS_topic_ARN']
 
@@ -211,15 +210,15 @@ def lambda_handler(event, context):
                 # 'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum'
 #                ExtendedStatistic='p100',
 #                ElastiCache支持cluster级别的监控:
-#                Dimensions = [
-#                   {
-#                        'Name': 'DomainName',
-#                        'Value': ec_name
-#                    },{
-#                        'Name': 'ClientId',
-#                        'Value': accountId,
-#                       }
-#                ],
+               Dimensions = [
+                  {
+                       'Name': 'DomainName',
+                       'Value': ec_name
+                   },{
+                       'Name': 'ClientId',
+                       'Value': accountId,
+                      }
+               ],
 #               ElastiCache支持cache nodes级别的监控:
 #                Dimensions = node_record,
 #                print(ec_name['LoadBalancerArn'].split('/',1)[1])
@@ -321,15 +320,15 @@ def lambda_handler(event, context):
                 # 'SampleCount'|'Average'|'Sum'|'Minimum'|'Maximum'
                 #                ExtendedStatistic='p100',
                 #                ElastiCache支持cluster级别的监控:
-                #                Dimensions = [
-                #                   {
-                #                        'Name': 'DomainName',
-                #                        'Value': ec_name
-                #                    },{
-                #                        'Name': 'ClientId',
-                #                        'Value': accountId,
-                #                       }
-                #                ],
+                               Dimensions = [
+                                  {
+                                       'Name': 'DomainName',
+                                       'Value': ec_name
+                                   },{
+                                       'Name': 'ClientId',
+                                       'Value': accountId,
+                                      }
+                               ],
                 #               ElastiCache支持cache nodes级别的监控:
                 #                Dimensions = node_record,
                 #                print(ec_name['LoadBalancerArn'].split('/',1)[1])
