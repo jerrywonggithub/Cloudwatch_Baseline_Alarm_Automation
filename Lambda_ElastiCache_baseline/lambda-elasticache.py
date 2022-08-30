@@ -212,11 +212,11 @@ def lambda_handler(event, context):
 #                ElastiCache支持cluster级别的监控:
                Dimensions = [
                   {
-                       'Name': 'DomainName',
+                       'Name': 'CacheClusterId',
                        'Value': ec_name
-                   },{
-                       'Name': 'ClientId',
-                       'Value': accountId,
+                   # },{
+                   #     'Name': 'ClientId',
+                   #     'Value': accountId,
                       }
                ],
 #               ElastiCache支持cache nodes级别的监控:
@@ -322,11 +322,11 @@ def lambda_handler(event, context):
                 #                ElastiCache支持cluster级别的监控:
                                Dimensions = [
                                   {
-                                       'Name': 'DomainName',
+                                       'Name': 'CacheClusterId',
                                        'Value': ec_name
-                                   },{
-                                       'Name': 'ClientId',
-                                       'Value': accountId,
+                                   # },{
+                                   #     'Name': 'ClientId',
+                                   #     'Value': accountId,
                                       }
                                ],
                 #               ElastiCache支持cache nodes级别的监控:
