@@ -11,8 +11,7 @@ import boto3
 
 # Read required RDS metric name from environment variables
 # (In my sample configured CPUUtilization, DatabaseConnections, FreeableMemory, FreeStorageSpace)
-# RDS_MetricName = os.environ['MetricName'].split(',')
-RDS_MetricName = ['CPUUtilization','DatabaseConnections','FreeableMemory','FreeStorageSpace']
+RDS_MetricName = os.environ['MetricName'].split(',')
 MaxItems = os.environ['MaxItems']
 SNS_topic_ARN = os.environ['SNS_topic_ARN']
 
@@ -28,28 +27,71 @@ def is_existed_inList(target, list):
 
 
 def map_maxConnections(instanceSize):
-    if instanceSize == 'large':
-        return 1000
-    if instanceSize == 'xlarge':
-        return 2000
-    if instanceSize == '2xlarge':
-        return 3000
-    if instanceSize == '4xlarge':
-        return 5000
-    if instanceSize == '8xlarge':
-        return 10000
-    if instanceSize == '12xlarge':
-        return 15000
-    if instanceSize == '16xlarge':
-        return 20000
-    if instanceSize == '24xlarge':
-        return 30000
-    if instanceSize == 'small':
-        return 45
-    if instanceSize == 'medium':
-        return 90
-    else:
-        return 999
+    if instanceFamily[0] == 'r':
+        if instanceSize == 'large':
+            return 1300
+        if instanceSize == 'xlarge':
+            return 2600
+        if instanceSize == '2xlarge':
+            return 5000
+        if instanceSize == '4xlarge':
+            return 10000
+        if instanceSize == '8xlarge':
+            return 20000
+        if instanceSize == '12xlarge':
+            return 30000
+        if instanceSize == '16xlarge':
+            return 40000
+        if instanceSize == '24xlarge':
+            return 60000
+        else:
+            return 999
+    elif instanceFamily[0] == 'm':
+        if instanceSize == 'large':
+            return 600
+        if instanceSize == 'xlarge':
+            return 1300
+        if instanceSize == '2xlarge':
+            return 2600
+        if instanceSize == '4xlarge':
+            return 5000
+        if instanceSize == '8xlarge':
+            return 10000
+        if instanceSize == '12xlarge':
+            return 16000
+        if instanceSize == '16xlarge':
+            return 20000
+        if instanceSize == '24xlarge':
+            return 30000
+        if instanceSize == 'small':
+            return 45
+        if instanceSize == 'medium':
+            return 90
+        else:
+            return 999
+
+    # if instanceSize == 'large':
+    #     return 1000
+    # if instanceSize == 'xlarge':
+    #     return 2000
+    # if instanceSize == '2xlarge':
+    #     return 3000
+    # if instanceSize == '4xlarge':
+    #     return 5000
+    # if instanceSize == '8xlarge':
+    #     return 10000
+    # if instanceSize == '12xlarge':
+    #     return 15000
+    # if instanceSize == '16xlarge':
+    #     return 20000
+    # if instanceSize == '24xlarge':
+    #     return 30000
+    # if instanceSize == 'small':
+    #     return 45
+    # if instanceSize == 'medium':
+    #     return 90
+    # else:
+    #     return 999
 
 # def map_instanceMemory(instanceFamily, instanceSize):
 #     if instanceFamily[0] == 'r':
